@@ -1,6 +1,5 @@
-dash
 pandas
+dash
 plotly
-matplotlib
 seaborn
-gunicorn
+matplotlib
