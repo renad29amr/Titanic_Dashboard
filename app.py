@@ -39,8 +39,7 @@ matrix = df[['Survived','Pclass','Age','SibSp','Parch','Fare']].corr()
 sns.heatmap(matrix, annot=True, cmap='Reds', fmt='.2f')
 plt.title("Correlation Heatmap")
 plt.show()
-app = Dash()
-
+app = Dash(__name__)
 app.layout = html.Div([
     html.H1("Titanic Dashboard,",style={'color':'red'}),
     html.Label("Select type of Graph"),
@@ -77,6 +76,8 @@ def update_graph(plot_type):
     return fig
 
 if __name__ == "__main__":
-    app.run_server(host="0.0.0.0", port=10000, debug=False)
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(host="0.0.0.0", port=port)
+
 
 
